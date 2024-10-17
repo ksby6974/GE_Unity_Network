@@ -7,6 +7,11 @@ public class PopUp : MonoBehaviour
 {
     [SerializeField] Text content;
 
+    public void Awake()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void SetText(string contentText)
     {
         content.text = contentText;
@@ -16,6 +21,4 @@ public class PopUp : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-
-
 }

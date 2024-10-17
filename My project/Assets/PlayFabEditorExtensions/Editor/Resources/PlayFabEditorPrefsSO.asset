@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PlayFabEditorPrefsSO
   m_EditorClassIdentifier: 
   DevAccountEmail: yswtkddn6479@naver.com
-  DevAccountToken: jpfasczbpobtemrwn57hx6jkij6n94jf9zeawzfwx5qiz5djzz18y139c4q3t3tuyy5c559r6wxyfjugh5nep6x4oq3koy386s6j6g3odzip7wd6nifdahojmrr98hf78b8cgzjk6pgdxku6cwpqimwrts8hpqj8i5oj14x3nt1tqsiwegjpiy9wccj3wbbyrpydzm53
+  DevAccountToken: mu47zb1d4p6jke6uyrrb1pem34wz1kwz88q14oszuycmebjdcxj1kpssq887oyqfazrgrcz73kyywyjp6974nfoe6xtsep8se3fcq997k6768cs6us5wkhhbm5d8ymzge9g3qogekg5fgxkihiri9w1947bgqhmxfcubqcsgxx5zomjau55ne51zng477y7rmgj94r11
   AadAuthorization: 
-  SelectedStudio: _OVERRIDE_
+  SelectedStudio: newstudio
   SdkPath: Assets/PlayFabSDK
   EdExPath: 
   LocalCloudScriptPath: 

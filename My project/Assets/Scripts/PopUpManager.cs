@@ -2,8 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AlarmType
+{
+    SIGNINFAILURE,
+    SIGNUPFAILURE,
+    SIGNUPSUCCESS,
+}
+
 public class PopUpManager : MonoBehaviour
 {
+
     [SerializeField] List<GameObject> popUpList;
 
     private static PopUpManager instance;
@@ -30,17 +38,12 @@ public class PopUpManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void Create(string popUpName)
+    public void Show(AlarmType alarmType, string content)
     {
-        for (int i = 0; i < popUpList.Count; i++)
+        if (popUpList[(int)alarmType] != null)
         {
-            if (popUpName == popUpList[i].name)
-            {
-                popUpList[i].gameObject.SetActive(true);
-                return;
-            }
+            popUpList[(int)alarmType].GetComponent<PopUp>().SetText(content);
+            popUpList[(int)alarmType].SetActive(true);
         }
-
-        popUpList.Add(Instantiate(Resources.Load<GameObject>(popUpName), gameObject.transform.GetChild(0)));
     }
 }
