@@ -9,6 +9,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] Canvas roomCanvas;
     [SerializeField] Canvas lobbyCanvas;
+    [SerializeField] Dropdown dropdown;
 
     // Start is called before the first frame update
     private void Awake()
@@ -36,7 +37,17 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
+        
+
+
         Debug.Log("마스터 서버 연결");
-        PhotonNetwork.JoinLobby();
+        PhotonNetwork.JoinLobby
+        (
+            new TypedLobby
+            (
+                dropdown.options[dropdown.value].text,
+                LobbyType.Default
+            )
+        );
     }
 }
