@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1853227055681630059}
   - component: {fileID: 179793370862957778}
   - component: {fileID: 1274843933796134070}
+  - component: {fileID: 5447393688821700976}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -98,7 +99,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674319033032622447}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 502aec18005ea6f45a52c6d21c0e1dad, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -168,6 +169,7 @@ MonoBehaviour:
   remoteCamera: {fileID: 5199507783960185639}
   movement: {fileID: 0}
   rotation: {fileID: 0}
+  rigidbody: {fileID: 0}
 --- !u!114 &179793370862957778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +197,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseX: 0
-  speed: 200
+  mouseY: 0
+  speed: 250
+--- !u!54 &5447393688821700976
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674319033032622447}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &1818234736803831200
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,9 +339,12 @@ GameObject:
   - component: {fileID: 7312824419326316671}
   - component: {fileID: 5199507783960185639}
   - component: {fileID: 166651132782609615}
+  - component: {fileID: 4874067844282245277}
+  - component: {fileID: 6510986418004565894}
+  - component: {fileID: 6187547385699062888}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -390,6 +423,42 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3067820812044118226}
   m_Enabled: 1
+--- !u!114 &4874067844282245277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3067820812044118226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc8951ce9cae0946bb6601fc895ef60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6510986418004565894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3067820812044118226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd5d6e31898eb4e46a18e54591585cbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseX: 0
+  mouseY: 0
+  speed: 0
+--- !u!45 &6187547385699062888
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3067820812044118226}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 860a66ca4259b384f9ec01b687f71c3c, type: 2}
 --- !u!1 &7166884674144869817
 GameObject:
   m_ObjectHideFlags: 0

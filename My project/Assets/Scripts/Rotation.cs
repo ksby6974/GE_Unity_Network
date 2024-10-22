@@ -5,23 +5,32 @@ using UnityEngine;
 public class Rotation : MonoBehaviour
 {
     [SerializeField] float mouseX;
-    [SerializeField] float speed = 200.0f;
+    [SerializeField] float mouseY;
+    [SerializeField] float speed;
 
-    public void RotateY()
+    public void InputRotateY()
     {
         mouseX += Input.GetAxisRaw("Mouse X") * speed * Time.deltaTime;
-        transform.eulerAngles += new Vector3(0, mouseX, 0);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void Awake()
     {
-        
+        speed = 250.0f;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RotateX()
     {
-        
+        // mouseX에 마우스로 입력한 값을 저장
+        // mouseY에 -65 ~ 65 값을 제한
+        // Mathf.Clamp(제한하는 값, 최소값, 최대값)
+        mouseY += Input.GetAxisRaw("Mouse Y") * speed * Time.deltaTime;
+        mouseY = Mathf.Clamp(mouseY, -65, 65);
+        transform.localEulerAngles = new Vector3(-mouseX, 0, 0);
+    }
+
+    public void RotateY(Rigidbody rigidbody)
+    {
+        mouseX += Input.GetAxisRaw("Mouse X") * speed * Time.deltaTime;
+        rigidbody.transform.eulerAngles = new Vector3(0, mouseX, 0);
     }
 }

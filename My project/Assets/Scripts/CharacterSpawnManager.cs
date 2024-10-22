@@ -20,6 +20,6 @@ public class CharacterSpawnManager : MonoBehaviourPunCallbacks
             Quaternion.identity
         );
 
-        Debug.Log("Chara Create");
+        Debug.Log("Hero Create");
     }
 }

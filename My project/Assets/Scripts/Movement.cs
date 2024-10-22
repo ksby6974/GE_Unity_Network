@@ -12,11 +12,11 @@ public class Movement : MonoBehaviour
         Speed = 5.0f;
     }
 
-    public void Movemnt()
+    public void Movemnt(Rigidbody rigidbody)
     {
         direction.x = Input.GetAxis("Horizontal");
-        direction.y = Input.GetAxis("Vertical");
+        direction.z = Input.GetAxis("Vertical");
         direction.Normalize();
-        transform.position += transform.TransformDirection(direction * Speed * Time.deltaTime);
+        transform.position += rigidbody.transform.TransformDirection(direction * Speed * Time.deltaTime);
     }
 }
