@@ -12,7 +12,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [SerializeField] InputField roomCapacityInputField;
     [SerializeField] Transform contentTransform;
 
-    private Dictionary<string, RoomInfo> dictionary = new Dictionary<string,RoomInfo>();
+    private Dictionary<string, GameObject> dictionary = new Dictionary<string,GameObject>();
     public override void OnJoinedRoom()
     {
         PhotonNetwork.LoadLevel("GameScene");
@@ -29,14 +29,47 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
+        GameObject temporaryRoom;
+
+        foreach(RoomInfo room in roomList)
+        {
+            // 룸이 삭제된 경우
+            if (room.RemovedFromList == true)
+            {
+                dictionary.TryGetValue(room.Name, out temporaryRoom);
+                Destroy(temporaryRoom);
+                dictionary.Remove(room.Name);
+            }
+            else
+            {
+                // 룸의 정보가 변경되는 경우
+                if (dictionary.ContainsKey(room.Name) == false)
+                {
+                    GameObject roomObject = Instantiate(Resources.Load<GameObject>("Room"), contentTransform);
+                    roomObject.GetComponent<RoomInformation>().SetData(room.Name, room.PlayerCount, room.MaxPlayers);
+                    dictionary.Add(room.Name, roomObject);
+                }
+                else
+                {
+                    dictionary.TryGetValue(room.Name, out temporaryRoom);
+                    temporaryRoom.GetComponent<RoomInformation>().SetData(room.Name, room.PlayerCount, room.MaxPlayers);
+                }
+            }
+        }
+
         //룸 삭제
 
         //룸 업데이트
 
         //룸 생성
-        InstantiateRoom();
+        //InstantiateRoom();
     }
 
+
+
+
+
+    /*
     public void InstantiateRoom()
     {
         foreach(RoomInfo roomInfo in dictionary.Values)
@@ -56,6 +89,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
             );
         }
     }
+    */
 
     public void UpdateRoom()
     {

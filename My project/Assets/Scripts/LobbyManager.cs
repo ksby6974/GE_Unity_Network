@@ -10,10 +10,18 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     [SerializeField] Canvas roomCanvas;
     [SerializeField] Canvas lobbyCanvas;
     [SerializeField] Dropdown dropdown;
+    [SerializeField] GameObject nickNamePanel;
 
     // Start is called before the first frame update
     private void Awake()
     {
+        PhotonNetwork.NickName = PlayerPrefs.GetString("NickName");
+
+        if (string.IsNullOrEmpty(PlayerPrefs.GetString("NickName")))
+        {
+            nickNamePanel.SetActive(false);
+        }
+
         if (PhotonNetwork.IsConnected)
         {
             lobbyCanvas.gameObject.SetActive(false);

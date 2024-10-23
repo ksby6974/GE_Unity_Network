@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 [RequireComponent(typeof(Rotation))]
 
-public class CharacterHead : MonoBehaviour
+public class CharacterHead : MonoBehaviourPunCallbacks
 {
     private Rotation rotation;
 
@@ -15,6 +16,11 @@ public class CharacterHead : MonoBehaviour
 
     private void Update()
     {
+        if (photonView.IsMine == false)
+        {
+            return;
+        }
+
         rotation.RotateX();
     }
 }
