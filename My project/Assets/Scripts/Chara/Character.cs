@@ -32,6 +32,11 @@ public class Character : MonoBehaviourPun
             return;
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            MouseManager.Instance.SetMouse(true);
+        }
+
         rotation.InputRotateY();
     }
 

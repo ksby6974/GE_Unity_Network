@@ -29,9 +29,8 @@ public class EnemySpawnManager : MonoBehaviourPunCallbacks
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnMasterClientSwitched(Player newMasterClient)
     {
-        
+        PhotonNetwork.SetMasterClient(PhotonNetwork.PlayerList[0]);
     }
 }
