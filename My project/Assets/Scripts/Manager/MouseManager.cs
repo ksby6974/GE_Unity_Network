@@ -44,7 +44,7 @@ public class MouseManager : MonoBehaviour
         switch (scene.buildIndex)
         {
             case 2:
-                SetMouse(false);
+                SetMouse(true);
                 break;
 
             default:

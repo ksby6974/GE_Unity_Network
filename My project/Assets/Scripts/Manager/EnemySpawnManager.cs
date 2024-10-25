@@ -7,11 +7,13 @@ using Photon.Realtime;
 public class EnemySpawnManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] Transform spawnPosition;
+    [SerializeField] int iLimit;
     WaitForSeconds waitForSeconds = new WaitForSeconds(5);
 
     // Start is called before the first frame update
     void Start()
     {
+        iLimit = 1;
         if (PhotonNetwork.IsMasterClient)
         {
             //PhotonNetwork.LeaveRoom();
@@ -21,11 +23,15 @@ public class EnemySpawnManager : MonoBehaviourPunCallbacks
 
     public IEnumerator CreateEnemy()
     {
-        while (true)
+        int n = 0;
+
+        while (iLimit > n)
         {
             PhotonNetwork.InstantiateRoomObject("Enemy", spawnPosition.position, Quaternion.identity);
             Debug.Log("CreateEnemy");
             yield return waitForSeconds;
+
+            n++;
         }
     }
 
